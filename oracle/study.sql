@@ -1,10 +1,10 @@
--- 1번. 춘 기술대학교의 학과 이름과 계열을 표시. 단, 출력 헤더는 "학과 명", "계열"로 표시하도록 한다.
+ -- 1번. 춘 기술대학교의 학과 이름과 계열을 표시. 단, 출력 헤더는 "학과 명", "계열"로 표시하도록 한다.
 SELECT DEPARTMENT_NAME "학과 명", CATEGORY 계열
 FROM TB_DEPARTMENT;
 
 -- 2번. 학과의 학과 정원을 다음과 같은 형태로 화면에 출력한다.
 SELECT DEPARTMENT_NAME || '의 정원은 ' ||  CAPACITY || '명 입니다.' AS "학과별 정원"
-FROM TB_DEPARTMENT;
+FROM TB_DEPARTMENT; 
 
 -- 3번. "국어국문학과"에 다니는 여학생 중 현재 휴학중인 여학생을 찾아달라는 요청이 들어왔다. 누구인가?
 -- (국문학과의 '학과코드'는 학과 테이블(TB_DEPARTMENT)을 조회해서 찾아내자
@@ -52,7 +52,4 @@ ORDER BY CATEGORY ASC;
 -- 재학중인 학생들의 학번, 이름, 주민번호를 출력
 SELECT STUDENT_NO, STUDENT_NAME, STUDENT_SSN
 FROM TB_STUDENT
-WHERE ABSENCE_YN = 'N' AND STUDENT_ADDRESS LIKE '%전주%' AND ENTRANCE_DATE IN ('10/03/01', '02/03/01');
-
-
-
+WHERE ABSENCE_YN = 'N' AND STUDENT_ADDRESS LIKE '%전주%' AND ENTRANCE_DATE = '02/03/01';
