@@ -294,10 +294,10 @@ FROM EMPLOYEE;
 
 -- 직원명, 입사년도, 입사월, 입사일 조회
 SELECT 
-    EMP_NAME,                                                        -- 1
-    EXTRACT(YEAR FROM HIRE_DATE ) "입사년도" ,   -- 2
-    EXTRACT(MONTH FROM HIRE_DATE)  "입사월",   -- 3
-    EXTRACT(DAY FROM HIRE_DATE ) "입사일"         -- 4 
+    EMP_NAME,                                   -- 1
+    EXTRACT(YEAR FROM HIRE_DATE ) "입사년도",    -- 2
+    EXTRACT(MONTH FROM HIRE_DATE)  "입사월",     -- 3
+    EXTRACT(DAY FROM HIRE_DATE ) "입사일"        -- 4 
 FROM EMPLOYEE
 ORDER BY 2, 3 ASC, 4 ASC;
 
