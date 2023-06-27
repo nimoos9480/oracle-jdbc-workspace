@@ -40,11 +40,10 @@ FROM TB_CLASS
 JOIN TB_DEPARTMENT USING(DEPARTMENT_NO);
 
 
--- 8.
+-- 8.  -- 맞는지 모르겠습니다ㅠㅠ
 SELECT CLASS_NAME, PROFESSOR_NAME
 FROM TB_CLASS
-JOIN TB_PROFESSOR USING (DEPARTMENT_NO)
-ORDER BY PROFESSOR_NAME;                                -- 정렬 해결하기
+JOIN TB_PROFESSOR USING (DEPARTMENT_NO);    
 
 
 -- 9.
@@ -79,7 +78,9 @@ AND CLASS_NO = (SELECT CLASS_NO FROM TB_CLASS WHERE CLASS_NAME = '인간관계�
 SELECT CLASS_NAME, DEPARTMENT_NAME
 FROM TB_CLASS
 JOIN TB_DEPARTMENT USING (DEPARTMENT_NO)
-WHERE CATEGORY = '예체능';
+LEFT JOIN TB_PROFESSOR USING (DEPARTMENT_NO)
+WHERE CATEGORY = '예체능'
+AND PROFESSOR_NO IS NULL;
  
 
 
@@ -126,62 +127,22 @@ WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO
                        WHERE STUDENT_NAME = '최경희');
                        
 -- 17.  
--- 국어국문학과 DEPARTMENT_NO
-SELECT DEPARTMENT_NO
-FROM TB_DEPARTMENT
-WHERE DEPARTMENT_NAME = '국어국문학과';
-
--- 국어국문학과 학생들의 평점
-SELECT MAX(AVG(POINT)) AS 평점
-FROM TB_STUDENT 
-JOIN TB_GRADE USING (STUDENT_NO)
-WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO
-                       FROM TB_DEPARTMENT
-                       WHERE DEPARTMENT_NAME = '국어국문학과')
-GROUP BY STUDENT_NAME
-ORDER BY 평점 DESC;
-
-
+                
 SELECT STUDENT_NO, STUDENT_NAME
 FROM TB_STUDENT
-WHERE DEPARTMENT_NO =  (SELECT DEPARTMENT_NO
-                       FROM TB_DEPARTMENT
-                       WHERE DEPARTMENT_NAME = '국어국문학과')
-AND AVG(POINT)        = (SELECT MAX(AVG(POINT)) AS 평점 
-FROM TB_STUDENT  
-JOIN TB_GRADE USING (STUDENT_NO) 
-WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO
-                       FROM TB_DEPARTMENT
-                       WHERE DEPARTMENT_NAME = '국어국문학과')
-GROUP BY STUDENT_NAME)
-
-
-
-
-
-
-
-
-
--- 국어국문학과에서 총평점이 가장 높은 학생
-SELECT STUDENT_NAME, STUDENT_NO
-FROM TB_STUDENT 
+JOIN TB_DEPARTMENT USING (DEPARTMENT_NO)
 JOIN TB_GRADE USING (STUDENT_NO)
-WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO
-                       FROM TB_DEPARTMENT
-                       WHERE DEPARTMENT_NAME = '국어국문학과')
-GROUP BY STUDENT_NAME, STUDENT_NO
-HAVING AVG(POINT) = (
-    SELECT MAX(AVG_POINT)
-    FROM (SELECT AVG(POINT) AS AVG_POINT
-          FROM TB_STUDENT
-          JOIN TB_GRADE USING (STUDENT_NO)
-          WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO
-                                 FROM TB_DEPARTMENT
-                                 WHERE DEPARTMENT_NAME = '국어국문학과')
-    GROUP BY STUDENT_NO)
-);
-                        
+WHERE DEPARTMENT_NAME = '국어국문학과' -- 국어국문학과 학생들
+GROUP BY STUDENT_NO, STUDENT_NAME
+HAVING AVG(POINT) = (SELECT MAX(AVG(POINT)) 
+                     FROM TB_STUDENT 
+                     JOIN TB_GRADE USING (STUDENT_NO) 
+                     WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO 
+                                            FROM TB_DEPARTMENT 
+                                            WHERE DEPARTMENT_NAME = '국어국문학과')
+                                            GROUP BY STUDENT_NAME);
+                  
+             
                         
 -- 18.
 -- "환경조경학과"가 속한 같은 계열 학과들
