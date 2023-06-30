@@ -330,6 +330,5 @@ SELECT* FROM EMP_SALARY;
 DROP TABLE DEPT_COPY;
 DROP TABLE EMP_SALARY;
 
-
-
-
+                                                                    -- 시험범위 끝
+----------------------------------------------------
