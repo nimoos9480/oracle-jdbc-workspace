@@ -62,3 +62,29 @@ CREATE TABLE TEST (
 
 ROLLBACK;
 SELECT * FROM EMP_TEST;   -- 202 돌아오지 않음
+
+
+
+-- JDBC ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE CUSTOMER(
+    NAME VARCHAR2(20),
+    AGE NUMBER,
+    ADDRESS VARCHAR2(100)
+);
+
+SELECT * FROM CUSTOMER;
+
+CREATE TABLE BANK(
+    NAME VARCHAR2(20),
+    BANKNAME VARCHAR2(40),
+    BALANCE NUMBER
+);
+
+INSERT INTO BANK VALUES('김도경', '국민은행', 1000000);
+INSERT INTO BANK VALUES('김민소', '신한은행', 500000);
+SELECT * FROM BANK;
+COMMIT;  -- 빼먹지 말기!!
+
+
+
+
