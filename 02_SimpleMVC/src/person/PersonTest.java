@@ -59,24 +59,64 @@ public class PersonTest {
 		closeAll(conn, st);
 	}
 	
-	public void removePerson (int id) {
+	public void removePerson (int id) throws SQLException {
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("removePerson"));
+		st.setInt(1, id);
 		
+		int result = st.executeUpdate();
+		System.out.println(result + "명 삭제!");
+		
+		closeAll(conn, st);
+	
+	}
+	
+	public void updatePerson(int id, String address) throws SQLException {
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("updatePerson"));
+		st.setString(1, address);
+		st.setInt(2, id);
+		
+		int result = st.executeUpdate();
+		System.out.println(result + "명 수정!");
+		
+		closeAll(conn, st);
+
+		
+	}
+	public void searchAllPerson() throws SQLException {
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("searchAllPerson"));
+		
+		
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+		System.out.println(rs.getString("name") + ", " + rs.getString("address"));
+		}
+		
+		closeAll(conn, st);
 		
 		
 	}
 	
-	public void updatePerson(int id, String address) {
+	public void viewPerson(int id) throws SQLException {
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("viewPerson"));
+		st.setInt(1, id);
 		
+		ResultSet rs = st.executeQuery();
 		
+		if(rs.next()) { // 하나니까 if써도 됨
+			System.out.println(rs.getString("name") + ", " + rs.getString("address"));
+			}
+			
 		
-	}
-	public void searchAllPerson() {
+		closeAll(conn, st);
 		
 	}
 	
-	public void viewPerson(int id) {
-		
-	}
+	
 	
 	public static void main(String[] args) {
 		
@@ -108,10 +148,7 @@ public class PersonTest {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
+
 		
 	}
 
