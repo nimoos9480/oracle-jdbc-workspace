@@ -336,3 +336,93 @@ WHERE DEPT_TITLE = '총무부';  -- 성공!
 SELECT * FROM EMPLOYEE;
 
 ROLLBACK;
+
+
+-- VIEW 옵션
+-- 2. FORCE | NOFORCE
+-- NOFORCE (기본값) : 서브쿼리에 기술된 테이블이 존재하는 테이블에만 뷰가 생성되게 함
+DROP TABLE TEST;
+
+-- 테이블이 존재하지 않아서 뷰 생성 X  :  테이블 생성 후 만들기 가능
+CREATE OR REPLACE NOFORCE VIEW VW_EMP
+AS SELECT * FROM TEST;  
+
+CREATE TABLE TEST(
+    TID NUMBER
+);
+
+-- FORCE : 서브쿼리에 기술된 테이블이 존재하지 않아도 뷰가 우선 생성됨
+CREATE OR REPLACE FORCE VIEW VW_EMP
+AS SELECT * FROM TEST;  --  경고: 컴파일 오류와 함께 뷰가 생성되었습니다.
+
+--> 컴파일 오류와 함께 뷰 생성! 이후 테이블이 생성되면 오류가 사라짐!
+SELECT * FROM VW_EMP;
+
+-- 3. WITH CHECK OPTION : 서브쿼리에 기술된 조건에 부합하지 않는 값으로 수정시 오류 발생함
+CREATE OR REPLACE VIEW VW_EMP
+AS SELECT * FROM EMPLOYEE
+WHERE SALARY >= 3000000;
+
+SELECT * FROM VW_EMP;
+
+-- 200번 사원의 급여를 200만원으로 변경(VW_EMP 사용해서)
+UPDATE VW_EMP
+SET SALARY = 2000000
+WHERE EMP_ID = 200;
+
+SELECT * FROM EMPLOYEE;
+
+ROLLBACK;
+
+-- WITH CHECK OPTION 사용 후
+CREATE OR REPLACE VIEW VW_EMP
+AS SELECT * FROM EMPLOYEE
+WHERE SALARY >= 3000000
+WITH CHECK OPTION;
+
+UPDATE VW_EMP
+SET SALARY = 2000000
+WHERE EMP_ID = 200;  -- 에러! 서브쿼리에 기술한 조건에 부합되지 않기 때문에 변경 불가 (뷰의 WITH CHECK OPTION의 조건에 위배)
+
+UPDATE VW_EMP
+SET SALARY = 4000000
+WHERE EMP_ID = 200;  --  서브쿼리에 기술한 조건에 부합되기 때문에 변경 가능
+
+SELECT * FROM EMPLOYEE;
+
+ROLLBACK;
+
+-- 4. WITH READ ONLY : 뷰에 대해 조회만 가능 (DML 수행불가)
+CREATE OR REPLACE VIEW VW_DEPT
+AS SELECT * FROM DEPARTMENT
+WITH READ ONLY;
+
+-- INSERT
+INSERT INTO VW_DEPT VALUES('D0', '해외영업 4부', 'L5');  -- 에러! (읽기 전용 뷰에서는 DML 작업을 수행할 수 없습니다.)
+
+-- UPDATE 
+UPDATE VW_DEPT
+SET LOCATION_ID = 'L2'
+WHERE DEPT_TITLE = '해외영업 2부';  -- 에러! 
+
+-- DELETE
+DELETE FROM VW_DEPT WHERE DEPT_TITLE = '해외영업 2부';  -- 에러! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
