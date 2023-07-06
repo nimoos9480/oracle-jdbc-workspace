@@ -6,19 +6,23 @@ public class Rent {
 	
 	private int rentNo;
 	private Member member;
-	private Book book;  // fk는 객체로 직접 가져온다
+	private Book book;
 	private Date rentDate;
-	public Rent() {
-		super();
-		
-	}
+	
+	public Rent() {}
+	
 	public Rent(int rentNo, Member member, Book book, Date rentDate) {
-		super();
 		this.rentNo = rentNo;
 		this.member = member;
 		this.book = book;
 		this.rentDate = rentDate;
 	}
+
+	public Rent(Member member, Book book) {
+		this.member = member;
+		this.book = book;
+	}
+
 	public int getRentNo() {
 		return rentNo;
 	}
@@ -43,14 +47,10 @@ public class Rent {
 	public void setRentDate(Date rentDate) {
 		this.rentDate = rentDate;
 	}
+	
 	@Override
 	public String toString() {
 		return "Rent [rentNo=" + rentNo + ", member=" + member + ", book=" + book + ", rentDate=" + rentDate + "]";
 	}
-	
-	
-	
-	
-	
 
 }

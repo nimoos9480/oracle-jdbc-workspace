@@ -62,17 +62,15 @@ public class BookDAO implements BookDAOTemplate{
 		Connection conn = getConnect();
 		PreparedStatement st = conn.prepareStatement(p.getProperty("printBookAll"));
 		
+		ResultSet rs = st.executeQuery();  // select 일 때
+		
 		ArrayList<Book> bookList = new ArrayList<>();	
 		
-		ResultSet rs = st.executeQuery();
-		
 		while(rs.next()) {
-		Book b = new Book(rs.getString("bk_title"), rs.getString("bk_author"));
-
-		bookList.add(b);
+			bookList.add(new Book(rs.getInt("bk_no") ,rs.getString("bk_title"), rs.getString("bk_author")));
 		
 		}
-		
+		closeAll(rs, st, conn);
 		return bookList;
 		
 	}
@@ -80,11 +78,10 @@ public class BookDAO implements BookDAOTemplate{
 	@Override
 	public int registerBook(Book book) throws SQLException {
 		Connection conn = getConnect();
-		PreparedStatement st = conn.prepareStatement(p.getProperty("registerMember"));
-		
-		st.setInt(1, book.getBkNo());
-		st.setString(2, book.getBkTitle());
-		st.setString(3, book.getBkAuthor());
+		PreparedStatement st = conn.prepareStatement(p.getProperty("registerBook"));
+
+		st.setString(1, book.getBkTitle());
+		st.setString(2, book.getBkAuthor());
 
 		int result = st.executeUpdate();
 		closeAll(st, conn);
@@ -124,22 +121,27 @@ public class BookDAO implements BookDAOTemplate{
 		st.setString(2, password);
 
 		ResultSet rs = st.executeQuery();
-		Member m = null;
+		Member member = null; // 멤버로 받을거야
 		if(rs.next()) { 
-			System.out.println("로그인 성공");
-			m = new Member(rs.getString("id"), rs.getString("password"), rs.getString("name"));
+			member = new Member();
+			member.setMemberNo(rs.getInt("member_no"));
+			member.setMemberId(rs.getString("member_id"));
+			member.setMemberPwd(rs.getString("member_pwd"));
+			member.setMemberName(rs.getString("member_name"));
+			member.setStatus(rs.getString("status").charAt(0));
+			member.setEnrollDate(rs.getDate("enroll_Date"));
 	
 		}
 
 		closeAll(rs, st, conn);
-		return m;
+		return member;
 		
 	}
 
 	@Override
 	public int deleteMember(String id, String password) throws SQLException {
 		Connection conn = getConnect();
-		PreparedStatement st = conn.prepareStatement(p.getProperty("updatePassword"));
+		PreparedStatement st = conn.prepareStatement(p.getProperty("deleteMember"));
 		st.setString(1, id);
 		st.setString(2, password);
 
@@ -151,11 +153,9 @@ public class BookDAO implements BookDAOTemplate{
 	@Override
 	public int rentBook(Rent rent) throws SQLException {
 		Connection conn = getConnect();
-		PreparedStatement st = conn.prepareStatement(p.getProperty("getMember"));
-		st.setInt(1, rent.getRentNo());
-	    st.setInt(2, rent.getMember().getMemberNo());
-	    st.setInt(3, rent.getBook().getBkNo());
-	    st.setDate(4, rent.getRentDate().getTime());
+		PreparedStatement st = conn.prepareStatement(p.getProperty("rentBook"));
+	    st.setInt(1, rent.getMember().getMemberNo());
+	    st.setInt(2, rent.getBook().getBkNo());
 
 	    int result = st.executeUpdate();
 
@@ -167,7 +167,7 @@ public class BookDAO implements BookDAOTemplate{
 	@Override
 	public int deleteRent(int no) throws SQLException {
 		Connection conn = getConnect();
-		PreparedStatement st = conn.prepareStatement(p.getProperty("updatePassword"));
+		PreparedStatement st = conn.prepareStatement(p.getProperty("deleteRent"));
 		st.setInt(1, no);
 
 		int result = st.executeUpdate();
@@ -187,9 +187,12 @@ public class BookDAO implements BookDAOTemplate{
 	    ResultSet rs = st.executeQuery();
 	    
 	    while(rs.next()) {
-	    	Rent r = new Rent(rs.getInt("rent_no"), rs.getInt("rent_mem_no"), rs.getInt("rent_book_no"), rs.getDate("rent_date"));
+	    	Rent rent = new Rent();
+	    	rent.setBook(new Book(rs.getString("bk_title"), rs.getString("bk_author")));
+	    	rent.setRentNo(rs.getInt("rent_no"));
+	    	rent.setRentDate(rs.getDate("rent_date"));
 
-	    	rentList.add(r);
+	    	rentList.add(rent);
 	    	
 	    	}
 
@@ -197,9 +200,4 @@ public class BookDAO implements BookDAOTemplate{
 	    return rentList;
 	}
 	
-	
-	
-	
-	return bookList;
-
 }

@@ -1,6 +1,6 @@
 package com.kh.model.vo;
 
-// 테이블 : TB_BOOK
+// 테이블 : TB_BOOK / 컬럼 : bk_no, bk_title, bk_author
 
 public class Book {
 	
@@ -8,15 +8,19 @@ public class Book {
 	private String bkTitle;
 	private String bkAuthor;
 	
-	public Book() {
-		super();
-		
+	public Book(String title, String author) {
+		this.bkTitle = title;
+		this.bkAuthor = author;
 	}
 
-	public Book(String bkTitle, String bkAuthor) {
-		super();
+	public Book(int bkNo, String bkTitle, String bkAuthor) {
+		this.bkNo = bkNo;
 		this.bkTitle = bkTitle;
 		this.bkAuthor = bkAuthor;
+	}
+
+	public Book(int no) {
+		this.bkNo = no;
 	}
 
 	public int getBkNo() {
@@ -48,6 +52,4 @@ public class Book {
 		return "Book [bkNo=" + bkNo + ", bkTitle=" + bkTitle + ", bkAuthor=" + bkAuthor + "]";
 	}
 
-	
-	
 }
