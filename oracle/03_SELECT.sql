@@ -152,7 +152,7 @@ FROM EMPLOYEE;
 
 /*
   DISTINCT
-  - 컬럼에 중복된 값들은 한번씩만 표시하고자 할 때 사용
+  - 컬럼에 중복된 값들을 한번씩만 표시하고자 할 때 사용
 */
 -- EMPLOYEE에서 직급코드 조회
 SELECT DISTINCT JOB_CODE 
@@ -293,7 +293,7 @@ WHERE EMAIL LIKE '___$_%' ESCAPE '$';
 -- => 논리부정 연산자 : NOT
 SELECT EMP_ID, EMP_NAME, EMAIL
 FROM EMPLOYEE
--- WHERE EMAIL NOT LIKE '___$_%' ESCAPE '$';
+--WHERE EMAIL NOT LIKE '___$_%' ESCAPE '$';
 WHERE NOT EMAIL LIKE '___$_%' ESCAPE '$';
 
 

@@ -118,7 +118,7 @@ SELECT* FROM MEMBER;
     * NOT NULL 제약조건
     - 해당 컬럼에 반드시 값이 존재해야만 하는 경우 (즉, 해당 컬럼에 절대 NULL이 들어와서는 안되는 경우)
     - 삽입 / 수정 시 NULL 값을 허용하지 않도록 제한
-    - 오로지 컬럼 제벨 방식으로만 설정 가능!
+    - 오로지 컬럼 레벨 방식으로만 설정 가능!
 */
 CREATE TABLE MEM_NOTNULL(
     MEM_NO NUMBER NOT NULL,
@@ -145,7 +145,7 @@ SELECT * FROM MEM_NOTNULL;
 */
 -- 컬럼 레벨 방식
 CREATE TABLE MEM_UNIQUE(
-     MEM_NO NUMBER NOT NULL,
+    MEM_NO NUMBER NOT NULL,
     MEM_ID VARCHAR2(20) NOT NULL UNIQUE,
     MEM_PWD VARCHAR2(20) NOT NULL,
     MEM_NAME VARCHAR2(20) NOT NULL,

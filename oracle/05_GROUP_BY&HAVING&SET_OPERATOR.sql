@@ -32,12 +32,12 @@ SELECT
     - 그룹에 대한 조건을 제시할 때 사용하는 구문 (주로 그룹 함수한 결과를 가지고 비교 수행)
     
     SELECT문 실행순서
-    5: SELECT              * | 조회하고자하는 컬럼명 AS 별칭 | 계산식 | 함수식
+    5 : SELECT             * | 조회하고자하는 컬럼명 AS 별칭 | 계산식 | 함수식
     1 : FROM               조회하고자하는 테이블명
     2 : WHERE            조건식
-    3: GROUP BY        그룹기준에 해당하는 컬럼명 | 계산식 | 함수식
-    4: HAVING           조건식 (그룹 함수를 가지고 기술)
-    6: ORDER BY        컬럼명 | 별칭 | 컬럼순번 [ASC|DESC] [NULSS FIRST|NULLS LAST]
+    3 : GROUP BY       그룹기준에 해당하는 컬럼명 | 계산식 | 함수식
+    4 : HAVING          조건식 (그룹 함수를 가지고 기술)
+    6 : ORDER BY       컬럼명 | 별칭 | 컬럼순번 [ASC|DESC] [NULSS FIRST|NULLS LAST]
 */
 
 -- 부서별 평균 급여가 300만원 이상인 직원의 평균 급여를 조회 (부서코드, 평균급여)

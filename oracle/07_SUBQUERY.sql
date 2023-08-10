@@ -207,7 +207,7 @@ SELECT EMP_ID, EMP_NAME, JOB_NAME, SALARY
 FROM EMPLOYEE E, JOB J
 WHERE E.JOB_CODE = J.JOB_CODE
 AND JOB_NAME = '대리'
-AND SALARY < ANY (SELECT SALARY
+AND SALARY > ANY (SELECT SALARY
                                  FROM EMPLOYEE E 
                                  JOIN JOB J USING (JOB_CODE)
                                  WHERE J.JOB_NAME = '과장');
@@ -217,7 +217,7 @@ SELECT EMP_ID, EMP_NAME, JOB_NAME, SALARY
 FROM EMPLOYEE E
 JOIN JOB J USING (JOB_CODE)
 WHERE JOB_NAME = '대리'
-AND SALARY < ANY (SELECT SALARY
+AND SALARY > ANY (SELECT SALARY
                                  FROM EMPLOYEE E, JOB J
                                  WHERE E.JOB_CODE = J.JOB_CODE
                                  AND J.JOB_NAME = '과장');
