@@ -1,0 +1,381 @@
+
+명령의 1 행에서 시작하는 중 오류 발생 -
+DROP TABLE MEMBER
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 2 행에서 시작하는 중 오류 발생 -
+DROP TABLE DISCOUNT
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 3 행에서 시작하는 중 오류 발생 -
+DROP TABLE MENU
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 4 행에서 시작하는 중 오류 발생 -
+DROP TABLE RES_MENU
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 5 행에서 시작하는 중 오류 발생 -
+DROP TABLE RESTAURANT
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 6 행에서 시작하는 중 오류 발생 -
+DROP TABLE LOCATION
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 7 행에서 시작하는 중 오류 발생 -
+DROP TABLE FOOD
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 8 행에서 시작하는 중 오류 발생 -
+DROP TABLE RESTAURANT_PICK
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 9 행에서 시작하는 중 오류 발생 -
+DROP TABLE RESTAURANT_COMMENT
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 10 행에서 시작하는 중 오류 발생 -
+DROP TABLE PICTURE
+오류 보고 -
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+명령의 12 행에서 시작하는 중 오류 발생 -
+DROP SEQUENCE SEQ_MEMBER
+오류 보고 -
+ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 13 행에서 시작하는 중 오류 발생 -
+DROP SEQUENCE SEQ_DISCOUNT
+오류 보고 -
+ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 14 행에서 시작하는 중 오류 발생 -
+DROP SEQUENCE SEQ_RESTAURANT_PICK
+오류 보고 -
+ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 15 행에서 시작하는 중 오류 발생 -
+DROP SEQUENCE SEQ_RESTAURANT
+오류 보고 -
+ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 16 행에서 시작하는 중 오류 발생 -
+DROP SEQUENCE SEQ_LOCATION
+오류 보고 -
+ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 17 행에서 시작하는 중 오류 발생 -
+DROP SEQUENCE SEQ_FOOD
+오류 보고 -
+ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+Table MEMBER이(가) 생성되었습니다.
+
+
+Table DISCOUNT이(가) 생성되었습니다.
+
+
+Table RESTAURANT이(가) 생성되었습니다.
+
+
+Table LOCATION이(가) 생성되었습니다.
+
+
+Table FOOD이(가) 생성되었습니다.
+
+
+Table RESTAURANT_COMMENT이(가) 생성되었습니다.
+
+
+Table RESERVATION이(가) 생성되었습니다.
+
+
+Table REVIEW이(가) 생성되었습니다.
+
+
+Table PICTURE이(가) 생성되었습니다.
+
+
+Table RES_MENU이(가) 생성되었습니다.
+
+
+Table MENU이(가) 생성되었습니다.
+
+
+Table RESTAURANT_PICK이(가) 생성되었습니다.
+
+
+Table RESTAURANT이(가) 변경되었습니다.
+
+
+Table LOCATION이(가) 변경되었습니다.
+
+
+Table FOOD이(가) 변경되었습니다.
+
+
+Table MEMBER이(가) 변경되었습니다.
+
+
+Table DISCOUNT이(가) 변경되었습니다.
+
+
+Table RESTAURANT_COMMENT이(가) 변경되었습니다.
+
+
+Table RESERVATION이(가) 변경되었습니다.
+
+
+Table REVIEW이(가) 변경되었습니다.
+
+
+Table PICTURE이(가) 변경되었습니다.
+
+
+Table MENU이(가) 변경되었습니다.
+
+
+Table RESTAURANT이(가) 변경되었습니다.
+
+
+Table RESTAURANT이(가) 변경되었습니다.
+
+
+Table RESTAURANT이(가) 변경되었습니다.
+
+
+Table RESTAURANT_PICK이(가) 변경되었습니다.
+
+
+Table RESTAURANT_PICK이(가) 변경되었습니다.
+
+
+Table RESTAURANT_COMMENT이(가) 변경되었습니다.
+
+
+Table RESTAURANT_COMMENT이(가) 변경되었습니다.
+
+
+Table RESERVATION이(가) 변경되었습니다.
+
+
+Table RESERVATION이(가) 변경되었습니다.
+
+
+Table REVIEW이(가) 변경되었습니다.
+
+
+Table REVIEW이(가) 변경되었습니다.
+
+
+Table RES_MENU이(가) 변경되었습니다.
+
+
+Table RES_MENU이(가) 변경되었습니다.
+
+
+Sequence SEQ_PICTURE이(가) 생성되었습니다.
+
+
+Sequence SEQ_MENU이(가) 생성되었습니다.
+
+
+Sequence SEQ_MEMBER이(가) 생성되었습니다.
+
+
+Sequence SEQ_DISCOUNT이(가) 생성되었습니다.
+
+
+Sequence SEQ_RESTAURANT_PICK이(가) 생성되었습니다.
+
+
+Sequence SEQ_RESTAURANT이(가) 생성되었습니다.
+
+
+Sequence SEQ_LOCATION이(가) 생성되었습니다.
+
+
+Sequence SEQ_FOOD이(가) 생성되었습니다.
+
+
+Sequence SEQ_RESTAURANT_COMMENT이(가) 생성되었습니다.
+
+>>Query Run In:질의 결과
+>>Query Run In:질의 결과 1
+>>Query Run In:질의 결과 2
+>>Query Run In:질의 결과 3
+>>Query Run In:질의 결과 4
+>>Query Run In:질의 결과 5
+>>Query Run In:질의 결과 6
+>>Query Run In:질의 결과 7
+>>Query Run In:질의 결과 8
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+명령의 166 행에서 시작하는 중 오류 발생 -
+INSERT INTO MEMBER VALUES(SEQ_MEM.NEXTVAL, 'JS', '박진실', '1111', '1111', '1111', '여', '27', '1111', '고객')
+오류 발생 명령행: 166 열: 27
+오류 보고 -
+SQL 오류: ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 167 행에서 시작하는 중 오류 발생 -
+INSERT INTO MEMBER VALUES(SEQ_MEM.NEXTVAL, 'SM', '신수민', '2222', '2222', '2222', '여', '27', '2222', '고객')
+오류 발생 명령행: 167 열: 27
+오류 보고 -
+SQL 오류: ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 168 행에서 시작하는 중 오류 발생 -
+INSERT INTO MEMBER VALUES(SEQ_MEM.NEXTVAL, 'KM', '김경미', '3333', '3333', '3333', '여', '27', '3333', '사장')
+오류 발생 명령행: 168 열: 27
+오류 보고 -
+SQL 오류: ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 169 행에서 시작하는 중 오류 발생 -
+INSERT INTO MEMBER VALUES(SEQ_MEM.NEXTVAL, 'JH', '최준혁', '4444', '4444', '4444', '남', '27', '4444', '관리자')
+오류 발생 명령행: 169 열: 27
+오류 보고 -
+SQL 오류: ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+명령의 170 행에서 시작하는 중 오류 발생 -
+INSERT INTO MEMBER VALUES(SEQ_MEM.NEXTVAL, 'JY', '박주영', '5555', '5555', '5555', '남', '27', '5555', '관리자')
+오류 발생 명령행: 170 열: 27
+오류 보고 -
+SQL 오류: ORA-02289: 시퀀스가 존재하지 않습니다.
+02289. 00000 -  "sequence does not exist"
+*Cause:    The specified sequence does not exist, or the user does
+           not have the required privilege to perform this operation.
+*Action:   Make sure the sequence name is correct, and that you have
+           the right to perform the desired operation on this sequence.
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
+
+1 행 이(가) 삽입되었습니다.
+
