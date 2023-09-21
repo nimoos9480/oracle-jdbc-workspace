@@ -1,3 +1,5 @@
+truncate table video cascade;
+
 DROP TABLE VIDEO_LIKE;
 DROP TABLE COMMENT_LIKE;
 DROP TABLE VIDEO_COMMENT;
