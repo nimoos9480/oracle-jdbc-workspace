@@ -1,4 +1,7 @@
 truncate table video cascade;
+truncate table channel cascade;
+
+select * from member;
 
 DROP TABLE VIDEO_LIKE;
 DROP TABLE COMMENT_LIKE;
